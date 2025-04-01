@@ -42,6 +42,11 @@ if (!isNaN(numKm) && !isNaN(userAge)) {
     console.log("humanPrice", humanPrice);
     console.log(messageOutput);
   } else {
+    humanPrice = "€ " + ticketPrice.toFixed(2);
+    messageOutput = `Il costo del suo biglietto è di ${humanPrice}`;
+
+    console.log("humanPrice", humanPrice);
+    console.log(messageOutput);
   }
 } else {
   console.log("valori non corretti");
