@@ -30,6 +30,17 @@ if (!isNaN(numKm) && !isNaN(userAge)) {
     console.log("discountedPrice", discountedPrice);
     console.log("humanPrice", humanPrice);
     console.log(messageOutput);
+  } else if (userAge >= 65) {
+    discount = (ticketPrice * over65Discount) / 100;
+    discountedPrice = ticketPrice - discount;
+    humanPrice = "€ " + discountedPrice.toFixed(2);
+    messageOutput = `Il costo del suo biglietto è di ${humanPrice}.\n\nApplicato sconto Over 65 del ${over65Discount}%`;
+
+    console.log("ticketPrice", ticketPrice);
+    console.log("discount", discount);
+    console.log("discountedPrice", discountedPrice);
+    console.log("humanPrice", humanPrice);
+    console.log(messageOutput);
   } else {
   }
 } else {
