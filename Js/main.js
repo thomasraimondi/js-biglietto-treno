@@ -49,6 +49,16 @@ if (!isNaN(numKm) && !isNaN(userAge)) {
     console.log(messageOutput);
   }
 } else {
+  if (isNaN(numKm) && isNaN(userAge)) {
+    messageOutput =
+      "entrambi i valori sono errati, devono essere un valore numerico";
+  } else if (isNaN(numKm)) {
+    messageOutput =
+      " Il valore dei Km è errato, deve essere un valore numerico";
+  } else {
+    messageOutput =
+      " Il valore dell'età è errato, deve essere un valore numerico";
+  }
   console.log("valori non corretti");
 }
 
