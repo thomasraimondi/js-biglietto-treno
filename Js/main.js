@@ -5,8 +5,8 @@ const userAge = parseInt(
   prompt("Qaunti anni ha?\n(inserire un valore numerico)")
 );
 const kmPrice = 0.21;
-const minorsDiscount = 20;
-const over65Discount = 40;
+const percentyMinorsDiscount = 20;
+const percentOver65Discount = 40;
 
 console.log("Numero km: ", numKm);
 console.log("User Age: ", userAge);
@@ -19,8 +19,9 @@ if (!isNaN(numKm) && !isNaN(userAge)) {
   let discount;
   const ticketPrice = numKm * kmPrice;
 
+  // calcolo costo biglietto se l'utente è minorenne
   if (userAge < 18) {
-    discount = (ticketPrice * minorsDiscount) / 100;
+    discount = (ticketPrice * percentyMinorsDiscount) / 100;
     discountedPrice = ticketPrice - discount;
     humanPrice = "€ " + discountedPrice.toFixed(2);
     messageOutput = `Il costo del suo biglietto è di ${humanPrice}.\n\nApplicato sconto minorrenni del ${minorsDiscount}%`;
@@ -30,8 +31,11 @@ if (!isNaN(numKm) && !isNaN(userAge)) {
     console.log("discountedPrice", discountedPrice);
     console.log("humanPrice", humanPrice);
     console.log(messageOutput);
-  } else if (userAge >= 65) {
-    discount = (ticketPrice * over65Discount) / 100;
+  }
+
+  // calcolo costo biglietto se l'utente ha l'età maggiore o ugule a 65 anni
+  else if (userAge >= 65) {
+    discount = (ticketPrice * percentOver65Discount) / 100;
     discountedPrice = ticketPrice - discount;
     humanPrice = "€ " + discountedPrice.toFixed(2);
     messageOutput = `Il costo del suo biglietto è di ${humanPrice}.\n\nApplicato sconto Over 65 del ${over65Discount}%`;
@@ -41,14 +45,20 @@ if (!isNaN(numKm) && !isNaN(userAge)) {
     console.log("discountedPrice", discountedPrice);
     console.log("humanPrice", humanPrice);
     console.log(messageOutput);
-  } else {
+  }
+
+  // calcolo costo del bisognetti per gli utenti che hanno l'età compresa tra 18 e 64 anni
+  else {
     humanPrice = "€ " + ticketPrice.toFixed(2);
     messageOutput = `Il costo del suo biglietto è di ${humanPrice}`;
 
     console.log("humanPrice", humanPrice);
     console.log(messageOutput);
   }
-} else {
+}
+
+// Verifico il corretto inserimento di ogni singolo input
+else {
   if (isNaN(numKm) && isNaN(userAge)) {
     messageOutput =
       "entrambi i valori sono errati, devono essere un valore numerico";
