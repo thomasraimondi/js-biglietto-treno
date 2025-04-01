@@ -8,3 +8,8 @@ console.log("Numero km: ", numKm);
 console.log("User Age: ", userAge);
 
 let messageOutput;
+if (!isNaN(numKm) && !isNaN(userAge)) {
+  console.log("Costo bisoglietto: ", ticketPrice);
+} else {
+  console.log("valori non corretti");
+}
